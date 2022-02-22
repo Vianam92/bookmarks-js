@@ -27,8 +27,8 @@
     <form class="menudropdown collapsed js-form-menu">
       <fieldset class="menu__data-search">
         <h2 class="menu__title">Búsqueda</h2>
-        <label class="data-search__epigraph" for="search_desc">Buscar por descripción: <input class="data-search__tag"
-            type="text" name="search_desc" id="search_desc"></label>
+        <label class="data-search__epigraph" for="search_desc">Buscar por descripción: <input
+            class="data-search__tag js-input-search" type="text" name="search_desc" id="search_desc"></label>
         <h3 class="data-search__epigraph">Buscar por etiquetas:</h3>
         <label class="data-search__tag" for="search_desc"><input type="checkbox" name="search_tags"
             id="search_tags_javascript"> <small class="data-search__hidden-label-text">Buscar por etiqueta
@@ -51,15 +51,16 @@
       </fieldset>
       <fieldset class="menu__data-layout">
         <h2 class="menu__title">Visualización</h2>
-        <button class="data-layout__button" title="Mostrar los bookmarks organizados como una de lista de tarjetas"><i
-            class="fas fa-th"></i><span class="data-layout__button--text">Vista tarjetas</span></button>
-        <button class="data-layout__button selected" title="Mostrar los bookmarks como una tabla"><i
+        <button class="data-layout__button js-listview"
+          title="Mostrar los bookmarks organizados como una de lista de tarjetas"><i class="fas fa-th"></i><span
+            class="data-layout__button--text">Vista tarjetas</span></button>
+        <button class="data-layout__button selected js-tableview" title="Mostrar los bookmarks como una tabla"><i
             class="fas fa-bars"></i><span class="data-layout__button--text">Vista tabla</span></button>
       </fieldset>
     </form>
     <main class="main">
       <h2>Lista de enlaces</h2>
-      <section class="data tableview">
+      <section class="data js-data tableview">
         <div class="data__header">
           <div>URL</div>
           <div>Lección act</div>
