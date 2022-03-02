@@ -7,85 +7,61 @@ const elementListView = document.querySelector(".js-listview");
 const elementTableView = document.querySelector(".js-tableview");
 const elmentInputSearch = document.querySelector(".js-input-search");
 
-const descrSearchText = elmentInputSearch.value;
+const bmkData_1 = {
+  url: "https://books.adalab.es/materiales-del-curso-n/-MdR6Gp68BX20m1pi0z2/modulo-2-programando-la-web/javascript/2_1_intro_a_la_programacion",
+  desc: "JS en los materiales de Adalab",
+  seen: true,
+  tags_1: "javascript",
+  tags_2: "HTML",
+};
 
-const linkUrl1 = `<a href="https://books.adalab.es/materiales-del-curso-n/-MdR6Gp68BX20m1pi0z2/modulo-2-programando-la-web/javascript/2_1_intro_a_la_programacion"
-target="_blank" rel="noopener noreferrer">
-books.adalab.es/materiales-del-curso-n/-MdR6Gp68BX20m1pi0z2/modulo-2-programando-la-web/javascript/2_1_intro_a_la_programacion
-</a>`;
+const bmkData_2 = {
+  url: "https://thesmartcoder.dev/9-awesome-projects-you-can-build-with-vanilla-javascript/",
+  desc: "Ideas de proyectos JS",
+  seen: true,
+  tags_1: "portfolio",
+  tags_2: "HTML",
+};
 
-const description1 = `JS en los materiales de Adalab`;
-const actualModulo1 = true;
-const categJS1 = ``;
-const categHTML1 = ``;
-
-const linkUrl2 = `<a href="https://thesmartcoder.dev/9-awesome-projects-you-can-build-with-vanilla-javascript/"
-target="_blank">thesmartcoder.dev/9-awesome-projects-you-can-build-with-vanilla-javascript/</a></a>`;
-
-const description2 = `Ideas de proyectos JS`;
-const actualModulo2 = true;
-const categportfolio2 = `portfolio`;
-const categHTML2 = `HTML`;
-
-const linkUrl3 = `<a href="https://books.adalab.es/materiales-del-curso-n/-MdR6Gp68BX20m1pi0z2/modulo-1-html-y-css/1_1_intro_a_la_web"
-target="_blank"
-rel="noopener noreferrer">books.adalab.es/materiales-del-curso-n/-MdR6Gp68BX20m1pi0z2/modulo-1-html-y-css/1_1_intro_a_la_web</a>`;
-const actualModulo3 = false;
-const description3 = `HTML en los materiales de Adalab`;
-const catrgcss3 = `CSS`;
-const catrgjs3 = `javascript`;
+const bmkData_3 = {
+  url: "https://books.adalab.es/materiales-del-curso-n/-MdR6Gp68BX20m1pi0z2/modulo-1-html-y-css/1_1_intro_a_la_web",
+  desc: "HTML en los materiales de Adalab",
+  seen: false,
+  tags_1: "CSS",
+  tags_2: "javascript",
+};
 
 let htmlList = "";
 
-if (description1.includes(descrSearchText)) {
+const renderBookmark = (bmkData) => {
   htmlList += `<li class="data__listitem">
-    <article class="data__item">
-      <p class="item__url">
-        ${linkUrl1}
-      </p>
-      <p class="item__seen">
-        <input type="checkbox" ${actualModulo1?"checked":""} name="item_imp_2" id="item_imp_2">
-      </p>
-      <p class="item__desc">${description1}</p>
-      <ul class="item__tags">
-      ${(categJS1 === "" && categHTML1 === "")?`<p class='item__tags'>No tiene</p>`:`<li class="item__tag">${categJS1}</li><li class="item__tag">${categHTML1.toLocaleLowerCase()}</li>`}
-      </ul>
-    </article>
-    </li>`;
-}
+  <article class="data__item">
+  <p class="item__url">
+  <a href=${bmkData.url} target="_blank" rel="noopener noreferrer">
+books.adalab.es/materiales-del-curso-n/-MdR6Gp68BX20m1pi0z2/modulo-2-programando-la-web/javascript/2_1_intro_a_la_programacion
+</a></p>
+            <p class="item__seen">
+              <input type="checkbox" ${
+                bmkData.seen ? "checked" : ""
+              } name="item_imp_2" id="item_imp_2">
+            </p>
+            <p class="item__desc">${bmkData.desc}</p>
+            <ul class="item__tags">
+            ${
+              bmkData.tags_1 === "" && bmkData.tags_2 === ""
+                ? `<p class='item__tags'>No tiene</p>`
+                : `<li class="item__tag">${
+                    bmkData.tags_1
+                  }</li><li class="item__tag">${bmkData.tags_2.toLocaleLowerCase()}</li>`
+            }
+            </ul>
+          </article>
+          </li>`;
+};
 
-if (description2.includes(descrSearchText)) {
-  htmlList += `<li class="data__listitem">
-    <article class="data__item">
-      <p class="item__url">
-        ${linkUrl2}
-      </p>
-      <p class="item__seen">
-        <input type="checkbox" ${actualModulo2?"checked":""} name="item_imp_1" id="item_imp_1">
-      </p>
-      <p class="item__desc">${description2}</p>
-      <ul class="item__tags">
-      ${(categHTML2 === "" && categportfolio2 === "")?`<p class='item__tags'>No tiene</p>`:`<li class="item__tag">${categHTML2}</li><li class="item__tag">${categportfolio2.toLocaleLowerCase()}</li>`}
-      </ul>
-    </article>
-    </li>`;
-}
-if (description3.includes(descrSearchText)) {
-  htmlList += `<li class="data__listitem">
-    <article class="data__item">
-      <p class="item__url">
-        ${linkUrl3}
-      </p>
-      <p class="item__seen">
-        <input type="checkbox" ${actualModulo3?"checked":""} name="item_imp_2" id="item_imp_2">
-      </p>
-      <p class="item__desc">${description3}</p>
-      <ul class="item__tags">
-      ${(catrgcss3 === "" && catrgjs3 === "")?`<p class='item__tags'>No tiene</p>`:`<li class="item__tag">${catrgcss3}</li><li class="item__tag">${catrgjs3.toLocaleLowerCase()}</li>`}
-      </ul>
-    </article>
-    </li>`;
-}
+renderBookmark(bmkData_1);
+renderBookmark(bmkData_2);
+renderBookmark(bmkData_3);
 
 const renderLinksList = () => {
   const elementLiDetails = document.querySelector(".js-details");
@@ -94,7 +70,7 @@ const renderLinksList = () => {
 
 renderLinksList();
 
-const handleGetForm = () => {
+const showAddFrom = () => {
   const elementSection = document.querySelector(".js-section");
   elementSection.classList.remove("hidden");
 };
@@ -105,7 +81,7 @@ const handleCollapsed = (ev) => {
   elementFormMenu.classList.toggle("collapsed");
 };
 
-const handleChangeViewList = (ev) => {
+const displayCardListView = (ev) => {
   ev.preventDefault();
   elementStlesTable.classList.add("listview");
   elementStlesTable.classList.remove("tableview");
@@ -113,7 +89,7 @@ const handleChangeViewList = (ev) => {
   elementTableView.classList.remove("selected");
 };
 
-const handleChangeViewTable = (ev) => {
+const displayTableView = (ev) => {
   ev.preventDefault();
   elementStlesTable.classList.remove("listview");
   elementStlesTable.classList.add("tableview");
@@ -125,7 +101,7 @@ const events = (element, func) => {
   element.addEventListener("click", func);
 };
 
-events(elementBtn, handleGetForm);
+events(elementBtn, showAddFrom);
 events(elementMenu, handleCollapsed);
-events(elementListView, handleChangeViewList);
-events(elementTableView, handleChangeViewTable);
+events(elementListView, displayCardListView);
+events(elementTableView, displayTableView);
